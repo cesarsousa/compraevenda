@@ -1,0 +1,191 @@
+redes sociais
+
+orkut
+compreevendadetudo
+cove.com
+
+twitter
+CompreVendaTudo
+cove.com
+
+facebook
+compreevendadetudo@gmail.com
+cove.com
+
+...............................................................................................................
+logica do botao "Logout"
+
+HttpSession sessao = request.getSession();  
+if(sessao.isNew()== false )  
+{  
+    sessao.invalidate();  
+    sessao = request.getSession(true);  
+} 
+...............................................................................................................
+hibernate config for mysql
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+"//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/db_compraevenda</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="nibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<!-- entidades -->
+		<mapping class="br.com.compraevenda.modelo.Cliente"/>
+		<mapping class="br.com.compraevenda.modelo.Produto"/>
+		<mapping class="br.com.compraevenda.modelo.Imagem"/>
+		<mapping class="br.com.compraevenda.modelo.RedeSocial"/>
+	</session-factory>
+</hibernate-configuration>
+
+hibernate config for hsqldb
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+"//Hibernate/Hibernate Configuration DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.username">SA</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.url">jdbc:hsqldb:file:C:/hsqldb_compraevenda/BD_compraevenda</property>
+		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+		<property name="nibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<!-- entidades -->
+		<mapping class="br.com.compraevenda.modelo.Cliente"/>
+		<mapping class="br.com.compraevenda.modelo.Produto"/>
+		<mapping class="br.com.compraevenda.modelo.Imagem"/>
+		<mapping class="br.com.compraevenda.modelo.RedeSocial"/>
+	</session-factory>
+</hibernate-configuration>
+
+para efetuar a conexão verifique a caminho do arquivo para persistencia em memoria
+<property name="hibernate.connection.url">jdbc:hsqldb:file:C:/hsqldb_compraevenda/BD_compraevenda</property>
+
+......................................................................................................................
+ao efetuar uma troca de ambiente siga os passos abaixo para configurar no hard path para as
+fotos do servidor
+
+path for work machine
+
+classe ImagemUtil
+String arquivo = "C:\\Workspace\\br.com.compraevenda\\WebContent\\imagem\\"
+				+ nomeDaFoto;
+
+classe CarregarImagemServlet
+arquivo = "C:\\Workspace\\br.com.compraevenda\\WebContent\\imagem\\" 
+            	+ request.getParameter("id");
+            	
+alterar contexto do nome
+classe CadastrarClienteServlet
+classe CadastrarProdutiServlet
+nomeDoArquivo = item.getName();
+
+........................................................................................................................
+solução para o problema da item.getName() no explorer 8 ou inferior
+
+nas classes.
+CadastrarProdutoServlet
+CadastrarClienteServlet
+
+nomeDoArquivo = nomeDoArquivo.replaceAll(Pattern.quote("\\"), "");
+.........................................................................................................................
+	
+logica do botao "Voltar"		
+Javascript		
+Às vezes é muito útil ter um botão para voltar uma página para trás, parecido com o que você tem em seu Browser. 
+Para tornar sua página fácil de se navegar, especialmente para iniciantes, utilize este botão para retornar.
+A Tag HTML para o Botão BACK:
+
+<form>
+<input type="button" value=" Back "
+onclick="history.go(-1)"> </p>
+</form>
+
+A Tag HTML para o Back em Link Texto/Gráfico:
+
+<a href="javascript:history.go(-1)">voltar</a>
+...................................................................................................................
+
+exemplo para o texto de termo de contrato
+
+termo de contrato
+O SPush oferece um serviço gratuito de caráter meramente informativo e as informações não têm valor legal. As notificações enviadas não substituem nem representam equivalência à publicação pela Imprensa Oficial.
+
+O usuário se compromete a manter atualizado o seu endereço de e-mail sempre que houver uma alteração em sua conta cadastrada, podendo cancelar o serviço ou alterar seus dados a qualquer tempo.
+
+Os prazos legais não serão afetados em função do não recebimento de mensagens de notificação deste serviço.
+
+O TJCE se dedicará na garantia da alta disponibilidade do serviço, mas o envio das mensagens de notificação poderá estar, eventualmente indisponível, sem aviso prévio, por problemas técnicos.
+
+Será reservado ao TJCE o direito de ampliar ou restringir, sem aviso prévio, a abrangência do serviço prestado de acordo com sua disponibilidade e viabilidade técnico-operacional.
+
+Este termo de uso define as regras de utilização do site http://www.ocergs.com.br para as Cooperativas interessadas em utilizar o cadastro das “Sociedades Prestadoras de Serviços”, consoante os termos da Resolução SESCOOP/RS n. 04, de 01 de novembro de 2006.  Os serviços do “Cadastro de Sociedades Prestadoras de Serviços” são fornecidos exclusivamente através do SESCOOP/RS às Cooperativas que desejam se utilizar dos profissionais (pessoas físicas) listados pelas empresas cadastradas e estão expressamente condicionados a aceitação deste termo. Ao utilizar o “Cadastro de Sociedades Prestadoras de Serviços”, a COOPERATIVA está de acordo com as regras aqui descritas.
+
+1. Serviços oferecidos
+O portal do SESCOOP/RS oferece, à COOPERATIVA, acesso ao conteúdo disponível no Cadastro das Sociedades Prestadoras de Serviços, em especial ao rol dos profissionais disponíveis à prestação dos serviços desejados pelas cooperativas integrantes do sistema cooperativo.
+2. Acesso ao conteúdo
+O conteúdo do Cadastro das Sociedades Prestadoras de Serviços é gratuito.
+3. Uso do conteúdo disponível no Cadastro das Sociedades Prestadoras de Serviços
+3.1. Os serviços oferecidos pelo SESCOOP/RS, descritos no item 1 são exclusivamente para uso privado, sendo expressamente proibida a comercialização de qualquer espécie de serviço ou do conteúdo, de forma integral ou parcial, bem como é expressamente proibida a reprodução ou retransmissão do conteúdo por qualquer pessoa física ou jurídica, através de qualquer meio.
+3.2. A COOPERATIVA entende que o conteúdo disponível no Cadastro das Sociedades Prestadoras de Serviços não se apresenta necessariamente em sua forma acabada e pronta para uso, vez que pode sofrer modificações pelas empresas prestadoras de serviços, principalmente naquilo que tange a lista de profissionais dos oferecidos.
+3.3. A COOPERATIVA assume todos os riscos e se responsabiliza por quaisquer danos ou prejuízos causados pelo uso de qualquer material, texto ou arquivo obtido no Cadastro das Sociedades Prestadoras de Serviços, assim como se compromete a não alterar os dados obtidos no site www.ocergs.com.br.
+4. Responsabilidade da COOPERATIVA
+4.1. A COOPERATIVA é responsável por todos os equipamentos e programas de computador para a utilização dos serviços, assim como pelas despesas de acesso à internet (acesso discado, banda larga, etc.) e também pelos danos que possam ocorrer ao seu equipamento, decorrentes da má utilização de qualquer software/hardware ou por falhas técnicas ocorridas em seu provedor de acesso à internet.
+4.2. O SESCOOP/RS não se responsabiliza, direta ou indiretamente, por quaisquer danos e/ou prejuízos causados pela utilização das informações disponíveis no site, inclusive danos causados por vírus de computador ou equivalentes.
+4.3. A COOPERATIVA assume todas as responsabilidades provenientes de relações contratuais ou extracontratuais entre pessoas físicas ou jurídicas, assumidas através do Cadastro das Sociedades Prestadoras de Serviços.
+4.4. Não fazem parte dos serviços oferecidos pelo SESCOOP/RS, os serviços de assistência técnica de qualquer espécie. O SESCOOP/RS não representa nem possui qualquer vínculo com profissionais ou com as empresas cadastradas.
+4.5. A COOPERATIVA se compromete a informar seus dados corretos e atualizados, solicitados no ato do registro, para a utilização dos serviços definidos no item 1 deste termo de uso. No caso de informar dados incorretos, incompletos ou desatualizados, o SESCOOP/RS se reserva o direito de cancelar o acesso até que as informações sejam atualizadas.
+4.6. A senha para acesso ao conteúdo é de uso exclusivo e o USUÁRIO obriga-se a mantê-la em sigilo. Em caso de uso indevido da mesma por terceiros, o USUÁRIO se compromete a comunicar imediatamente o SESCOP/RS. O USUÁRIO é o responsável por quaisquer danos e/ou prejuízos que o uso indevido da senha venha a ocorrer em razão de negligência.
+5. Registro da COOPERATIVA como usuária do Portal
+5.1 O registro é necessário para o uso de alguns recursos e serviços disponíveis. O REGISTRO é gratuito, exclusivo e intransferível, e deve ser realizado preenchendo-se corretamente as informações solicitadas no formulário existente na página http://www.ocergs.com.br, tem duração por tempo indeterminado e pode ser cancelado a qualquer momento pela COOPERATIVA, sem qualquer ônus para as partes. Os dados informados pela COOPERATIVA no ato do registro não são divulgados para terceiros, conforme a Política de Privacidade.
+5.2. A identificação da COOPERATIVA (login) é necessária para o acesso as seções do Cadastro das Sociedades Prestadoras de Serviços. Para a identificação, é necessário que a COOPERATIVA utilize seu e-mail e sua senha informados no momento do registro.
+6. Política de Privacidade
+A Política de Privacidade define o tratamento que o SESCOOP/RS dá às informações pessoais dos usuários que utilizam os serviços e recursos do Cadastro das Sociedades Prestadoras de Serviços.
+7. Direitos autorais e propriedade intelectual
+7.1. Todo o conteúdo existente no site http://www.ocergs.com.br é protegido pelas Leis de Direitos Autorais. A reprodução, cópia ou comercialização, por qualquer meio, está sujeita às penas previstas em Legislação específica.
+7.2. Todas as marcas, símbolos, logotipos ou softwares eventualmente citados nas páginas do SESCOOP/RS são de propriedade de seus respectivos titulares e têm a proteção da Lei de Propriedade Intelectual.
+7.3. A COOPERATIVA concorda em não reproduzir ou utilizar, sob qualquer título, o nome do SESCOOP/RS sem autorização prévia.
+7.4. Todo conteúdo como textos e informações que a COOPERATIVA envie ou torne disponível para publicação em qualquer seção é de propriedade e responsabilidade de quem enviou. O SESCOOP/RS e os usuários que o acessam estão igualmente isentos de qualquer ônus proveniente deste serviço.
+8. Rescisão do registro de usuário
+A COOPERATIVA poderá, a qualquer tempo, cancelar a utilização dos serviços oferecidos pelo SESCOOP/RS assim como seu registro de usuário, sem qualquer ônus para as partes. Para tanto, basta entrar em contato solicitando o cancelamento.
+9. Disposições Finais
+9.1. Os sites e quaisquer conteúdos e/ou serviços de terceiros que a COOPERATIVA encontrar através dos links publicados é de responsabilidade exclusiva de seus proprietários. O SESCOOP/RS não mantém, administra ou possui nenhuma relação com tais sites, serviços e/ou produtos encontrados através destes links, seja no Brasil ou no exterior, assim como não se responsabiliza pelos danos e/ou prejuízos decorrente da eventual utilização daqueles serviços.
+9.2. As opiniões eventualmente expressas são respeitadas e não expressam, obrigatoriamente, a idéia do SESCOOP/RS.
+9.3. O SESCOOP/RS não envia às COOPERATIVAS nenhum tipo de mensagem que não seja exclusivamente resultante da comunicação sobre o uso dos serviços pela COOPERATIVA, como a confirmação de registro de nova usuária, publicação de conteúdo, etc. O SESCOOP/RS é contra a prática de SPAM (envio de mensagens não solicitadas) e nenhuma pessoa física ou jurídica está autorizada a enviar qualquer mensagem em nome do SESCOOP/RS, sob qualquer título.
+9.4. A COOPERATIVA está ciente que os serviços prestados gratuitamente podem ser, a qualquer tempo, alterados, suspensos ou cancelados a critério do SESCOOP/RS, sem que esta decisão acarrete qualquer ônus ou obrigação das partes.
+ .........................................................................................................................
+ 
+ exercicio
+ 
+ conforme o novo contexto da web 2.0 o que seu site propõe (ou pode propor) relacionado a.
+ 
+ 1 - teoria da cauda longa.
+ 2 - dados são o proximo "intel inside".
+ 3 - usuários agregam valor.
+ 4 - efeitos de rede por padrão.
+ 5 - alguns direitos reservados.
+ 6 - o beta perpétuo.
+ 7 - cooperação, não-controle.
+ 8 - software além do computador.
+ 9 - vantagem competitiva.
+  
